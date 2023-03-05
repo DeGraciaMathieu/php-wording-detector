@@ -6,6 +6,9 @@
 ![Packagist PHP Version](https://img.shields.io/packagist/dependency-v/degraciamathieu/php-wording-detector/php)
 
 # php-wording-detector
+
+Simple tool to analyze and split the words contained in your variables to check your DDD approach.
+
 ## Installation
 Requires >= PHP 8.1
 ```
