@@ -2,6 +2,9 @@
 <img src="https://github.com/DeGraciaMathieu/php-smelly-code-detector/blob/master/arts/robot.png" width="250">
 </p>
 
+![Packagist Version](https://img.shields.io/packagist/v/degraciamathieu/php-wording-detector)
+![Packagist PHP Version](https://img.shields.io/packagist/dependency-v/degraciamathieu/php-wording-detector/php)
+
 # php-wording-detector
 ## Installation
 Requires >= PHP 8.1
