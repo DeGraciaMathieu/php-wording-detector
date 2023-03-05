@@ -8,16 +8,20 @@ class WordsBag
         private $attributes = [],
     ) {}
 
-    public function add(array $values): void
+    public function add(array $words): void
     {
-        foreach ($values as $value) {
+        foreach ($words as $word) {
 
-            $value = strtolower($value);
+            $word = strtolower($word);
 
-            if (isset($this->attributes[$value])) {
-                $this->attributes[$value]++;
+            if ($word === 'this') {
+                continue;
+            }
+
+            if (isset($this->attributes[$word])) {
+                $this->attributes[$word]++;
             } else {
-                $this->attributes[$value] = 1;
+                $this->attributes[$word] = 1;
             }
         }
     }

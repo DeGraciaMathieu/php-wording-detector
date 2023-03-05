@@ -8,6 +8,7 @@ use PhpParser\NodeTraverser;
 use App\Visitors\ClassVisitor;
 use PhpParser\Parser;
 use App\Bags\WordsBag;
+use function Termwind\{render};
 
 class Inspect extends Command
 {
@@ -67,9 +68,8 @@ class Inspect extends Command
 
         $words = $wordsBag->get();
 
-        dd(
-            array_slice($words, 0, 10),
-            array_sum($words),
-        );
+        render(view('inspect', [
+            'words' => $words,
+        ]));
     }
 }
