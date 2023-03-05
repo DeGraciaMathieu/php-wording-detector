@@ -21,7 +21,7 @@
             <th>pourcentage</th>
         </tr>
         </thead>
-        @foreach(array_slice($words, 0, 30) as $name => $usage)
+        @foreach(array_slice($words, 0, 20) as $name => $usage)
         <tr>
             <td>{{ $name }}</td>
             <td>{{ $usage }}</td>
