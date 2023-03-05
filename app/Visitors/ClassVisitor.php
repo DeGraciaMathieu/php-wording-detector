@@ -3,27 +3,22 @@
 namespace App\Visitors;
 
 use PhpParser\Node;
+use App\Nodes\NodeValidator;
+use App\Nodes\NodeExtractor;
 use PhpParser\NodeVisitorAbstract;
 use DeGraciaMathieu\FileExplorer\File;
 
 final class ClassVisitor extends NodeVisitorAbstract
 {
-    public function __construct(
-        public array $words = [],
-    ) {}
+	public array $words = [];
 
     public function leaveNode(Node $node): void
     {
-        if (! $node instanceof Node\Expr\Variable) {
-            return;
+        if (! NodeValidator::isAVariable($node)) {
+            return;  
         }
 
-        $words = preg_split(
-            '/(?=[A-Z])/', 
-            $node->name, 
-            -1, 
-            PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY
-        );
+        $words = NodeExtractor::cutNameIntoWords($node);
 
         $this->words[] = $words;
     }
