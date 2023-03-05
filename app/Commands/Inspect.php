@@ -9,6 +9,7 @@ use App\Visitors\ClassVisitor;
 use PhpParser\Parser;
 use App\Bags\WordsBag;
 use function Termwind\{render};
+use Generator;
 
 class Inspect extends Command
 {
@@ -24,7 +25,7 @@ class Inspect extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'summary analysis';
 
     /**
      * Execute the console command.
@@ -35,14 +36,26 @@ class Inspect extends Command
     {
         $this->info('❀ PHP Wording Detector ❀');
 
+        $files = $this->getFilesFromPath();
+
+        $wordsBag = $this->analyseFiles($files);
+
+        $this->render($wordsBag);
+    }
+
+    private function getFilesFromPath(): Generator
+    {
         $fileFinder = new FileFinder(
             basePath: dirname(app_path()), 
         );
 
-        $files = $fileFinder->getFiles(
+        return $fileFinder->getFiles(
             paths: $this->argument('path'),
         );
+    }
 
+    private function analyseFiles(Generator $files): WordsBag
+    {
         $wordsBag = new WordsBag();
 
         foreach ($files as $file) {
@@ -64,12 +77,15 @@ class Inspect extends Command
             }
         }
 
+        return $wordsBag;
+    }
+
+    private function render(WordsBag $wordsBag): void
+    {
         $wordsBag->sort();
 
-        $words = $wordsBag->get();
-
         render(view('inspect', [
-            'words' => $words,
+            'words' => $wordsBag->get(),
         ]));
     }
 }
