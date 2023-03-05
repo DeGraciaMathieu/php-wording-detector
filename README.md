@@ -24,30 +24,30 @@ $ php php-wording-detector inspect app
 +-------------+-----------------------+-------------+
 | total words | total distincts words | average use |
 +-------------+-----------------------+-------------+
-| 676         | 81                    | 8           |
+| 18'363      | 560                   | 33          |
 +-------------+-----------------------+-------------+
-+------------+-------+-------------+
-| words      | usage | pourcentage |
-+------------+-------+-------------+
-| request    | 95    | 14%         |
-| user       | 81    | 12%         |
-| alert      | 42    | 6%          |
-| topic      | 28    | 4%          |
-| post       | 25    | 4%          |
-| query      | 22    | 3%          |
-| url        | 21    | 3%          |
-| creators   | 20    | 3%          |
-| notifiable | 15    | 2%          |
-| posts      | 14    | 2%          |
-| config     | 13    | 2%          |
-| categories | 13    | 2%          |
-| comment    | 13    | 2%          |
-| model      | 12    | 2%          |
-| category   | 11    | 2%          |
-| value      | 10    | 1%          |
-| inputs     | 10    | 1%          |
-| css        | 9     | 1%          |
-| container  | 8     | 1%          |
-| path       | 8     | 1%          |
-+------------+-------+-------------+
++--------------+-------+-------------+
+| words        | usage | pourcentage |
++--------------+-------+-------------+
+| user         | 1629  | 9%          |
+| activity     | 1150  | 6%          |
+| exam         | 925   | 5%          |
+| organization | 671   | 4%          |
+| mode         | 460   | 3%          |
+| data         | 416   | 2%          |
+| code         | 383   | 2%          |
+| builder      | 368   | 2%          |
+| part         | 351   | 2%          |
+| item         | 350   | 2%          |
+| license      | 308   | 2%          |
+| request      | 296   | 2%          |
+| subscription | 289   | 2%          |
+| id           | 228   | 1%          |
+| answers      | 225   | 1%          |
+| coupon       | 214   | 1%          |
+| question     | 200   | 1%          |
+| exception    | 182   | under 1%    |
+| current      | 161   | under 1%    |
+| count        | 160   | under 1%    |
++--------------+-------+-------------+
 ```
