@@ -7,6 +7,7 @@ use DeGraciaMathieu\FileExplorer\FileFinder;
 use PhpParser\NodeTraverser;
 use App\Visitors\ClassVisitor;
 use PhpParser\Parser;
+use App\Bags\WordsBag;
 
 class Inspect extends Command
 {
@@ -15,7 +16,7 @@ class Inspect extends Command
      *
      * @var string
      */
-    protected $signature = 'inspect';
+    protected $signature = 'inspect {path}';
 
     /**
      * The description of the command.
@@ -34,14 +35,14 @@ class Inspect extends Command
         $this->info('❀ PHP Wording Detector ❀');
 
         $fileFinder = new FileFinder(
-            basePath: __DIR__, 
+            basePath: dirname(app_path()), 
         );
 
         $files = $fileFinder->getFiles(
-            paths: '../../tmp',
+            paths: $this->argument('path'),
         );
 
-        $words = [];
+        $wordsBag = new WordsBag();
 
         foreach ($files as $file) {
 
@@ -57,9 +58,18 @@ class Inspect extends Command
 
             $traverser->traverse($nodes);
 
-            $words[] = $visitor->words;
+            foreach ($visitor->words as $words) {
+                $wordsBag->add($words);
+            }
         }
 
-        dd($words);
+        $wordsBag->sort();
+
+        $words = $wordsBag->get();
+
+        dd(
+            array_slice($words, 0, 10),
+            array_sum($words),
+        );
     }
 }

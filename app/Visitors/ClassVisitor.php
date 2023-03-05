@@ -25,6 +25,6 @@ final class ClassVisitor extends NodeVisitorAbstract
             PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY
         );
 
-        $this->words = $words;
+        $this->words[] = $words;
     }
 }
