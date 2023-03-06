@@ -38,5 +38,4 @@ class NodeValidatorTest extends TestCase
 
         $this->assertFalse($isAVariable);
     }
-
 }
