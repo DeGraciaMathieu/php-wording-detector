@@ -6,7 +6,6 @@ use PhpParser\Node;
 use App\Nodes\NodeValidator;
 use App\Nodes\NodeExtractor;
 use PhpParser\NodeVisitorAbstract;
-use DeGraciaMathieu\FileExplorer\File;
 
 final class ClassVisitor extends NodeVisitorAbstract
 {
