@@ -1,4 +1,5 @@
 <div>
+    @if($words)
     <table>
         <thead>
         <tr>
@@ -38,4 +39,7 @@
         </tr>
         @endforeach
     </table>
+    @else
+        No files found.
+    @endif
 </div>
