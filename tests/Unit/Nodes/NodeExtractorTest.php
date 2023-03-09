@@ -28,6 +28,9 @@ class NodeExtractorTest extends TestCase
     {
         return [
             ['getAllFoo', ['get', 'All', 'Foo']],
+            ['get_all_foo', ['get', 'all', 'foo']],
+            ['Get_All_Foo', ['Get', 'All', 'Foo']],
+            ['get_All_Foo', ['get', 'All', 'Foo']],
             ['getallfoo', ['getallfoo']],
             ['get', ['get']],
         ];
