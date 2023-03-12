@@ -46,7 +46,7 @@ class Inspect extends Command
     private function getFilesFromPath(): Generator
     {
         $fileFinder = new FileFinder(
-            basePath: dirname(app_path()), 
+            basePath: getcwd(), 
         );
 
         return $fileFinder->getFiles(
