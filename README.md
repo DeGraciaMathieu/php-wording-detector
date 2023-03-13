@@ -10,12 +10,30 @@
 
 Simple tool to analyze and split the words contained in your variables to check your DDD approach.
 
-## Installation
+# Installation
+
+```
 Requires >= PHP 8.1
+```
+
+## Phar
+This tool is distributed as a [PHP Archive (PHAR)](https://www.php.net/phar):
+
+```
+wget https://github.com/DeGraciaMathieu/php-wording-detector/raw/master/builds/php-wording-detector
+```
+
+```
+php php-wording-detector --version
+```
+
+## Composer
+Alternately, you can directly use composer :
+
 ```
 composer require degraciamathieu/php-wording-detector --dev
 ```
-## Usage
+# Usage
 ```
 php php-wording-detector inspect {path}
 ```
