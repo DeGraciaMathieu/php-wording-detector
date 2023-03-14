@@ -38,35 +38,35 @@ composer require degraciamathieu/php-wording-detector --dev
 php php-wording-detector inspect {path}
 ```
 ```
-$ php php-wording-detector inspect app
+$ php php-wording-detector inspect app/Domains/Activity
 ❀ PHP Wording Detector ❀
 +-------------+-----------------------+-------------+
 | total words | total distincts words | average use |
 +-------------+-----------------------+-------------+
-| 18'363      | 560                   | 33          |
+| 2'166       | 52                    | 42          |
 +-------------+-----------------------+-------------+
-+--------------+-------+-------------+
-| words        | usage | pourcentage |
-+--------------+-------+-------------+
-| user         | 1629  | 9%          |
-| activity     | 1150  | 6%          |
-| exam         | 925   | 5%          |
-| organization | 671   | 4%          |
-| mode         | 460   | 3%          |
-| data         | 416   | 2%          |
-| code         | 383   | 2%          |
-| builder      | 368   | 2%          |
-| part         | 351   | 2%          |
-| item         | 350   | 2%          |
-| license      | 308   | 2%          |
-| request      | 296   | 2%          |
-| subscription | 289   | 2%          |
-| id           | 228   | 1%          |
-| answers      | 225   | 1%          |
-| coupon       | 214   | 1%          |
-| question     | 200   | 1%          |
-| exception    | 182   | under 1%    |
-| current      | 161   | under 1%    |
-| count        | 160   | under 1%    |
-+--------------+-------+-------------+
++--------------+-------+------------+
+| words        | usage | percentage |
++--------------+-------+------------+
+| activity     | 667   | 31%        |
+| data         | 154   | 7%         |
+| code         | 150   | 7%         |
+| item         | 143   | 7%         |
+| query        | 128   | 6%         |
+| request      | 88    | 4%         |
+| mode         | 85    | 4%         |
+| translations | 78    | 4%         |
+| id           | 77    | 4%         |
+| type         | 63    | 3%         |
+| new          | 46    | 2%         |
+| product      | 41    | 2%         |
+| translation  | 41    | 2%         |
+| types        | 40    | 2%         |
+| master       | 33    | 2%         |
+| filters      | 29    | 1%         |
+| language     | 24    | 1%         |
+| builder      | 23    | 1%         |
+| items        | 22    | 1%         |
+| section      | 21    | under 1%   |
++--------------+-------+------------+
 ```

@@ -19,7 +19,7 @@
         <tr>
             <th>words</th>
             <th>usage</th>
-            <th>pourcentage</th>
+            <th>percentage</th>
         </tr>
         </thead>
         @foreach(array_slice($words, 0, 20) as $name => $usage)
