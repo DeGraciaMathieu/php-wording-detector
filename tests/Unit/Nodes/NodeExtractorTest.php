@@ -35,4 +35,20 @@ class NodeExtractorTest extends TestCase
             ['get', ['get']],
         ];
     }
+
+    /**
+     * @test
+     */
+    public function it_can_get_the_name_even_if_its_a_variable(): void
+    {
+        $variable = new Variable(
+            name: new Variable(
+                name: 'getAllFoo',
+            ),
+        );
+
+        $words = NodeExtractor::cutNameIntoWords($variable);
+
+        $this->assertEquals(['get', 'All', 'Foo'], $words);
+    }
 }
