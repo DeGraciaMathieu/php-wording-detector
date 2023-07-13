@@ -6,6 +6,7 @@ use PHPUnit\Framework\TestCase;
 use App\Nodes\NodeValidator;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Stmt\ClassMethod;
 
 class NodeValidatorTest extends TestCase
 {
@@ -20,6 +21,20 @@ class NodeValidatorTest extends TestCase
         );
 
         $isAVariable = NodeValidator::isAVariable($variable);
+
+        $this->assertTrue($isAVariable);
+    }
+
+    /**
+     * @test
+     */
+    public function it_able_to_check_node_is_a_method(): void
+    {
+        $method = new ClassMethod(
+            name: 'getAllFoo',
+        );
+
+        $isAVariable = NodeValidator::isAMethod($method);
 
         $this->assertTrue($isAVariable);
     }
