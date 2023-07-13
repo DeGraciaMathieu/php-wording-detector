@@ -34,9 +34,19 @@ Alternately, you can directly use composer :
 composer require degraciamathieu/php-wording-detector --dev
 ```
 # Usage
+
+By default only variables are analyzed :
+
 ```
 php php-wording-detector inspect {path}
 ```
+
+The `--with-method` option allows to parse the name of the methods :
+
+```
+php php-wording-detector inspect {path} --with-method
+```
+
 ```
 $ php php-wording-detector inspect app/Domains/Activity
 ❀ PHP Wording Detector ❀
