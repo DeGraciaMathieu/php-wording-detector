@@ -5,6 +5,7 @@ namespace Tests\Unit\Nodes;
 use PHPUnit\Framework\TestCase;
 use App\Nodes\NodeExtractor;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Stmt\ClassMethod;
 
 class NodeExtractorTest extends TestCase
 {
@@ -12,7 +13,7 @@ class NodeExtractorTest extends TestCase
      * @test
      * @dataProvider nameProvider
      */
-    public function it_can_cut_name_into_words(string $name, array $expectedWords): void
+    public function it_can_cut_variable_into_words(string $name, array $expectedWords): void
     {
         $variable = new Variable(
             name: $name,
@@ -20,6 +21,21 @@ class NodeExtractorTest extends TestCase
         );
 
         $words = NodeExtractor::cutNameIntoWords($variable);
+
+        $this->assertEquals($expectedWords, $words);
+    }
+
+    /**
+     * @test
+     * @dataProvider nameProvider
+     */
+    public function it_can_cut_method_into_words(string $name, array $expectedWords): void
+    {
+        $method = new ClassMethod(
+            name: $name,
+        );
+
+        $words = NodeExtractor::cutNameIntoWords($method);
 
         $this->assertEquals($expectedWords, $words);
     }

@@ -8,8 +8,8 @@ use PhpParser\NodeTraverser;
 use App\Visitors\ClassVisitor;
 use PhpParser\Parser;
 use App\Bags\WordsBag;
-use function Termwind\{render};
 use Generator;
+use App\Renderers\ViewRenderer;
 
 class Inspect extends Command
 {
@@ -18,7 +18,7 @@ class Inspect extends Command
      *
      * @var string
      */
-    protected $signature = 'inspect {path}';
+    protected $signature = 'inspect {path} {--with-method}';
 
     /**
      * The description of the command.
@@ -62,7 +62,9 @@ class Inspect extends Command
 
             $traverser = new NodeTraverser();
 
-            $visitor = new ClassVisitor();
+            $visitor = new ClassVisitor(
+                withMethod: (bool) $this->option('with-method'),
+            );
 
             $traverser->addVisitor($visitor);
 
@@ -84,8 +86,8 @@ class Inspect extends Command
     {
         $wordsBag->sort();
 
-        render(view('inspect', [
-            'words' => $wordsBag->get(),
-        ]));
+        app(ViewRenderer::class)->display(
+            words: $wordsBag->get(),
+        );
     }
 }
