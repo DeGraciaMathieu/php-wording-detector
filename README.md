@@ -8,7 +8,7 @@
 
 # php-wording-detector
 
-Simple tool to analyze and split the words contained in your variables to check your DDD approach.
+Simple tool to analyze and split the words contained in your code to check your DDD approach.
 
 # Installation
 
