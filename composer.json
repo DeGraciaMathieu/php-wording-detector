@@ -19,6 +19,7 @@
         "degraciamathieu/php-file-explorer": "0.4.*",
         "illuminate/view": "^10.0",
         "laravel-zero/framework": "^10.0",
+        "laravel/prompts": "^0.1.21",
         "nikic/php-parser": "^4.13",
         "nunomaduro/termwind": "^1.15"
     },
@@ -35,6 +36,9 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "./tests/Builders/builders.php"
+        ],
         "psr-4": {
             "Tests\\": "tests/"
         }
