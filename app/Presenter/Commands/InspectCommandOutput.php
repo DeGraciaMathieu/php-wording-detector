@@ -29,7 +29,7 @@ class InspectCommandOutput implements InspectOutput
     {
         $wordAggregator->sort();
 
-        $html = $this->makeHtml($wordAggregator->words());
+        $html = $this->makeHtml($wordAggregator);
 
         $this->renderHtml($html);
     }
@@ -39,8 +39,10 @@ class InspectCommandOutput implements InspectOutput
         error($th);
     }
 
-    private function makeHtml(array $words): ViewContract
+    private function makeHtml(WordAggregator $wordAggregator): ViewContract
     {
+        $words = $wordAggregator->words();
+
         return $this->view->make('inspect', [
             'words' => $words,
         ]);
