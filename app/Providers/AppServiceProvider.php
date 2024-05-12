@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use PhpParser\ParserFactory;
 use PhpParser\Parser;
+use PhpParser\ParserFactory;
+use App\Domain\Ports\FileService;
+use Illuminate\Support\ServiceProvider;
+use App\Domain\Ports\AnalyzeService;
+use App\Infrastructure\File\Adapters\FileServiceAdapter;
+use App\Infrastructure\Analyze\Adapters\AnalyzeServiceAdapter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +31,8 @@ class AppServiceProvider extends ServiceProvider
 
             return $parserFactory->create(ParserFactory::PREFER_PHP7);
         });
+
+        $this->app->bind(FileService::class, FileServiceAdapter::class);
+        $this->app->bind(AnalyzeService::class, AnalyzeServiceAdapter::class);
     }
 }

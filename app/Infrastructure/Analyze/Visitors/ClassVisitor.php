@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Visitors;
+namespace App\Infrastructure\Analyze\Visitors;
 
 use PhpParser\Node;
-use App\Nodes\NodeValidator;
-use App\Nodes\NodeExtractor;
 use PhpParser\NodeVisitorAbstract;
+use App\Infrastructure\Analyze\Nodes\NodeExtractor;
+use App\Infrastructure\Analyze\Nodes\NodeValidator;
 
 final class ClassVisitor extends NodeVisitorAbstract
 {
@@ -21,7 +21,7 @@ final class ClassVisitor extends NodeVisitorAbstract
 
             $words = NodeExtractor::cutNameIntoWords($node);
 
-            $this->words[] = $words;
+            $this->words = array_merge($this->words, $words);
         }
     }
 

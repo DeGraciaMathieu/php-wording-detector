@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\Nodes;
+namespace Tests\Unit\Infrastructure\Nodes;
 
 use PHPUnit\Framework\TestCase;
-use App\Nodes\NodeExtractor;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Stmt\ClassMethod;
+use App\Infrastructure\Analyze\Nodes\NodeExtractor;
 
 class NodeExtractorTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nodes;
+namespace App\Infrastructure\Analyze\Nodes;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\Variable;

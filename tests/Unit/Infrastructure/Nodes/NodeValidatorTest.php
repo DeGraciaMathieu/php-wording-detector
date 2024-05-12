@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit\Nodes;
+namespace Tests\Unit\Infrastructure\Nodes;
 
-use PHPUnit\Framework\TestCase;
-use App\Nodes\NodeValidator;
-use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Expr\Array_;
+use PHPUnit\Framework\TestCase;
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Stmt\ClassMethod;
+use App\Infrastructure\Analyze\Nodes\NodeValidator;
 
 class NodeValidatorTest extends TestCase
 {
