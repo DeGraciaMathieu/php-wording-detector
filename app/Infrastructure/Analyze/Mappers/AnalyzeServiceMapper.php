@@ -5,7 +5,7 @@ namespace App\Infrastructure\Analyze\Mappers;
 use App\Domain\Entities\WordEntity;
 use App\Domain\Aggregators\WordAggregator;
 
-class PhpParserWordMapper
+class AnalyzeServiceMapper
 {
     public function __construct(
         private WordAggregator $wordAggregator,
@@ -15,14 +15,19 @@ class PhpParserWordMapper
     public function map(array $words): void
     {
         foreach ($words as $word) {
-            $this->wordAggregator->add(
-                WordEntity::from($word),
-            );
+            $this->add($word);
         }
     }
 
     public function aggregate(): WordAggregator
     {
         return $this->wordAggregator;
+    }
+
+    private function add(string $word): void
+    {
+        $this->wordAggregator->add(
+            WordEntity::from($word),
+        );
     }
 }

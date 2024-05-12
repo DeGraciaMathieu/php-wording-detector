@@ -9,13 +9,13 @@ use App\Domain\Ports\AnalyzeService;
 use App\Domain\Aggregators\FileAggregator;
 use App\Domain\Aggregators\WordAggregator;
 use App\Infrastructure\Analyze\Visitors\ClassVisitor;
-use App\Infrastructure\Analyze\Mappers\PhpParserWordMapper;
+use App\Infrastructure\Analyze\Mappers\AnalyzeServiceMapper;
 
 class AnalyzeServiceAdapter implements AnalyzeService
 {
     public function __construct(
         private Parser $parser,
-        private PhpParserWordMapper $mapper,
+        private AnalyzeServiceMapper $mapper,
     ) {}
 
     public function getWords(FileAggregator $fileAggregator, bool $withMethod): WordAggregator
