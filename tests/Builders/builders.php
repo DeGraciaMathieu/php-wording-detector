@@ -1,7 +1,6 @@
 <?php
 
-namespace Tests\Builders;
-
+use Tests\Builders\FileAggregatorBuilder;
 function fileAggregator() {
     return new FileAggregatorBuilder();
 }
